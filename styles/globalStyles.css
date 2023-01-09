@@ -14,12 +14,16 @@
     --color04: #CE4646;
     --color05: #4BA036;
     --color06: #F8F8F8;
+    --gray400: hsl(210, 7%, 56%);
+    --gray500: hsl(210, 11%, 71%);
    
   }
 
 
 body {
     font-family: "Inter", sans-serif;
+    height: 100vh;
+    width: 100vw;
   }
   
   

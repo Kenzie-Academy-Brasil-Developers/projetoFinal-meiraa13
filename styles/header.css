@@ -1,0 +1,20 @@
+header {
+
+    border-bottom: 1px solid var(--color01);
+    background-color: var(--color02);
+}
+
+.div-header {
+
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    align-items: center;
+}
+
+.div-empresas{
+
+    display: flex;
+    align-items: center;
+    gap: 5px
+}

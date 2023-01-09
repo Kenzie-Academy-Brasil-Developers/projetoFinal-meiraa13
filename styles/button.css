@@ -1,0 +1,24 @@
+input {
+
+    padding: 12px;
+    border: 1px solid var(--gray500);
+}
+
+.blue-btn {
+
+    padding: 12px;
+    background-color: var(--color01);
+    color: var(--color02);
+    border-style: none;
+}
+
+.white-btn {
+
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--color01);
+    color: var(--color01);
+    text-decoration: none;
+
+}
