@@ -24,13 +24,14 @@
     
 }
 
-.div-section {
+.div-select {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:center;
+    /* background-color: aqua; */
     height: 100%;
-    width: 75%;
+    width: 100%;
     padding: 0 0.5rem;
 
 }
@@ -70,12 +71,21 @@ li {
 
 }
 
+select {
+
+    border-style: none;
+    background-color: var(--color01);
+    color: var(--color02);
+
+}
+
 @media (min-width:769px){
 
 
     main{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 20px;
         height: 500px;
     }
 
@@ -94,7 +104,7 @@ li {
 
     .section-1 {
         height: 100%;
-        width: 47%;
+        width: 44%;
         background-color: aqua;
         display: block;
     }
@@ -103,7 +113,7 @@ li {
 
         background-color: var(--color06);
         height: 100%;
-        width: 47%;
+        width: 44%;
     }
 
    

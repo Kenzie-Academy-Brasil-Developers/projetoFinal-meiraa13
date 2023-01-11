@@ -16,3 +16,13 @@
 
     text-align: center;
 }
+
+.spc-between {
+
+    justify-content: space-between;
+}
+
+.just-center {
+
+    justify-content: center;
+}

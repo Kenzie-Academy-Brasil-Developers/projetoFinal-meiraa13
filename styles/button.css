@@ -12,7 +12,7 @@ input {
     border-style: none;
 }
 
-.white-btn {
+.gray-btn {
 
     width: 100%;
     padding: 12px;
@@ -21,4 +21,52 @@ input {
     color: var(--color01);
     text-decoration: none;
 
+}
+
+.white-btn {
+
+    padding: 8px 16px;
+    background-color: var(--color02);
+    border:1px solid var(--color01);
+    color: var(--color01);
+
+}
+
+.eye {
+
+    background-image: url('../assets/eye-2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    border-style: none;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.edit {
+
+    background-image: url('../assets/edit.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    border-style: none;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.delete {
+
+    background-image: url('../assets/delete.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    border-style: none;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
 }

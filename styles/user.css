@@ -1,0 +1,43 @@
+.user-area {
+
+    border: 1px solid var(--gray500);
+    padding: 1rem;
+
+}
+
+.company-header {
+
+    background-color: var(--color01);
+    color: var(--color02);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.company {
+
+    background-color: var(--gray800);
+    height: 300px;
+    border: 1px solid var(--gray500);
+    overflow-y: auto;
+}
+
+ul{
+
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+li {
+    background-color: white;
+    padding: 0.5rem;
+    width: 300px;
+    height: 80px;
+    border: 1px solid var(--color01);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
