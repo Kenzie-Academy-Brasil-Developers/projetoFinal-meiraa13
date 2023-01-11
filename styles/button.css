@@ -70,3 +70,14 @@ input {
     width: 30px;
     cursor: pointer;
 }
+
+.create-department {
+
+    padding: 0.5rem 2rem;
+    background-color: var(--color01);
+    color: var(--color02);
+    border-style: none;
+    cursor: pointer;
+
+
+}

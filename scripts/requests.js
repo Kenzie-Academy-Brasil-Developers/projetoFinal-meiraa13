@@ -374,6 +374,58 @@ async function deleteUser(id){
 
 }
 
+async function usersNoDptm(){
+
+    const localStorage = getLocalStorage()
+
+    try{
+
+        const request = await fetch(baseUrl + 'admin/out_of_work', {
+            method:'GET',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            }
+        })
+
+        const response = await request.json()
+        return response
 
 
-export { listCompanies, register, login, selectSector, checkUserType, listDepartments, createDepartment, listCompaniesDptm, editDepartment, deleteDepartment, listUsers, editUsers, deleteUser }
+    }catch(err) {
+
+        console.log(err)
+    }
+}
+
+async function hireUser(body){
+
+    
+    const localStorage = getLocalStorage()
+
+    try{
+
+        const request = await fetch(`${baseUrl}departments/hire`, {
+            method:'PATCH',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+        return response
+
+
+    }catch(err) {
+
+        console.log(err)
+    }
+
+
+}
+
+
+
+export { listCompanies, register, login, selectSector, checkUserType, listDepartments, createDepartment, listCompaniesDptm, editDepartment, deleteDepartment, listUsers, editUsers, deleteUser, usersNoDptm, hireUser }

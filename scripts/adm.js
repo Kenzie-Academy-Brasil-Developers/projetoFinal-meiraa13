@@ -8,11 +8,13 @@ import { deleteDptmForm } from "./form.js";
 import { listUsers } from "./requests.js";
 import { editUserForm } from "./form.js";
 import { deleteUserForm } from "./form.js";
+import { admViewForm } from "./form.js";
 
 
 async function renderDepartments(){
 
     const departments = await listDepartments()
+    
     
     const ul = document.querySelector('.department')
     ul.innerHTML = ''
@@ -42,6 +44,13 @@ function createDepartment(department){
     div.classList = 'adm-buttons'
     let btn1 = document.createElement('button')
     btn1.classList = 'eye'
+
+    btn1.addEventListener('click', async()=>{
+
+        const viewAdm = await admViewForm(department)
+        openModal(viewAdm)
+
+    })
     let btn2 = document.createElement('button')
     btn2.classList = 'edit'
 
@@ -128,13 +137,14 @@ createDepoEvent()
 async function renderUsers(){
 
     const users = await listUsers()
+    const departments = await listDepartments()
 
     const ul = document.querySelector('.users')
     ul.innerHTML = ''
 
     users.forEach((user)=>{
 
-        let template = createUser(user)
+        let template = createUser(user, departments)
         ul.appendChild(template)
 
     })
@@ -142,14 +152,21 @@ async function renderUsers(){
 }
 renderUsers()
 
-function createUser(user){
+function createUser(user, dptms){
 
+    let array = dptms.find((dptm)=> dptm.uuid == user.department_uuid)
+    
     let li = document.createElement('li')
 
     let h4 = document.createElement('h4')
     h4.innerText = user.username
     let p = document.createElement('p')
     p.innerText = user.professional_level
+    let p2 = document.createElement('p')
+    if(array){
+
+        p2.innerText = array.companies.name
+    }
     let div = document.createElement('div')
     div.classList = 'adm-buttons'
     let button1 = document.createElement('button')
@@ -174,7 +191,7 @@ function createUser(user){
 
     div.append(button1, button2)
 
-    li.append(h4, p, div)
+    li.append(h4, p, p2, div)
 
     return li
 

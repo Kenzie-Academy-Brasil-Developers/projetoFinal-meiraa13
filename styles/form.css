@@ -1,0 +1,76 @@
+.form {
+
+    width: 95%;
+    height: 270px;
+    display: flex;
+    /* background-color: aqua; */
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 30px */
+
+}
+
+.form-input2 {
+
+    height: 100px;
+    background-color: var(--gray800);
+    border: 1px solid var(--gray600);
+    border-radius: 5px;
+
+}
+
+.select-form {
+
+    padding: 0.5rem;
+    border: 1px solid var(--gray500);
+}
+
+.btn-createForm {
+
+    background-color: var(--color01);
+    padding: 0.4rem;
+    border-style: none;
+    color: var(--color02);
+    cursor: pointer;
+}
+
+.form-delete {
+
+    padding: 0 1rem;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+}
+
+.btn-deleteForm {
+
+    width: 100%;
+    padding: 0.6rem;
+    border-style: none;
+    background-color: var(--color05);
+    color: var(--color02);
+    cursor: pointer;
+
+}
+
+.input-editForm {
+
+    height: 100px;
+
+}
+
+.form-editUser {
+
+    width: 95%;
+    height: 200px;
+    display: flex;
+    /* background-color: aqua; */
+    flex-direction: column;
+    justify-content: space-around;
+
+}
