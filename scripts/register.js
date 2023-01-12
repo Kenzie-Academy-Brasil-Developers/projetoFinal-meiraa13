@@ -14,7 +14,7 @@ function registerEvent(){
 
         arrayForm.forEach((elt)=>{
 
-            if(elt.tagName == 'INPUT' && elt.value !== ''){
+            if(elt.tagName == 'INPUT' || elt.tagName =='SELECT' && elt.value !== ''){
 
                 body[elt.id] = elt.value
             }
@@ -28,3 +28,20 @@ function registerEvent(){
 }
 
 registerEvent()
+
+function showButtons(){
+
+    const button = document.querySelector('.btn-show')
+    const div = document.querySelector('.line-2')
+ 
+
+    button.addEventListener('click',()=>{
+
+        div.classList.toggle('show-btn')
+
+    })
+
+
+
+}
+showButtons()

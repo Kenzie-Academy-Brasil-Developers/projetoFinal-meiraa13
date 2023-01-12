@@ -7,9 +7,16 @@ header {
 .div-header {
 
     display: flex;
+    flex-direction: column;
+    height: 5rem;
+}
+
+.div-header-admin {
+
+    display: flex;
     justify-content: space-between;
-    height: 4rem;
     align-items: center;
+    height: 4rem;
 }
 
 .div-empresas{
@@ -17,4 +24,74 @@ header {
     display: flex;
     align-items: center;
     gap: 5px
+}
+
+.line-1 {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.line-2 {
+
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    transition: 1s ease;
+ 
+   
+}
+
+.show-btn {
+
+    margin-top: -200px;
+    transition: 1s ease;
+}
+
+.btn-header1 {
+
+    border: 1px solid var(--color01);
+    padding: 0.5rem 1.5rem;
+    color: var(--color01);
+
+}
+
+.btn-header2 {
+
+    background-color: var(--color01);
+    color: var(--color02);
+    padding: 0.5rem 1.5rem;
+
+}
+
+
+@media (min-width:769px){
+
+    .button-open {
+
+        display: none;
+
+    }
+
+    .div-header {
+
+        flex-direction: row;
+        align-items: center;
+        height: 4rem;
+    }
+
+    .line-2 {
+
+        width: 300px;
+
+    }
+
+    .show-btn {
+        margin-top: unset;
+    }
+
 }

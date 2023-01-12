@@ -65,3 +65,19 @@ function selectEvent(){
 
 selectEvent()
 
+function showButtons(){
+
+    const button = document.querySelector('.btn-show')
+    const div = document.querySelector('.line-2')
+ 
+
+    button.addEventListener('click',()=>{
+
+        div.classList.toggle('show-btn')
+
+    })
+
+
+
+}
+showButtons()

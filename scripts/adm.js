@@ -177,9 +177,15 @@ async function renderUsers(){
 
     users.forEach((user)=>{
 
-        let template = createUser(user, departments)
-        ul.appendChild(template)
+        if(user.username !=='ADMIN'){
 
+            let template = createUser(user, departments)
+            ul.appendChild(template)
+    
+
+
+        }
+       
     })
 
 }

@@ -31,7 +31,7 @@
     justify-content:center;
     /* background-color: aqua; */
     height: 100%;
-    width: 100%;
+    width: 60%;
     padding: 0 0.5rem;
 
 }
@@ -75,7 +75,9 @@ select {
 
     border-style: none;
     background-color: var(--color01);
+    width: 100%;
     color: var(--color02);
+    font-size: medium;
 
 }
 
@@ -84,7 +86,7 @@ select {
 
     main{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
         height: 500px;
     }
@@ -104,7 +106,7 @@ select {
 
     .section-1 {
         height: 100%;
-        width: 44%;
+        width: 47%;
         background-color: aqua;
         display: block;
     }
@@ -113,7 +115,7 @@ select {
 
         background-color: var(--color06);
         height: 100%;
-        width: 44%;
+        width: 47%;
     }
 
    

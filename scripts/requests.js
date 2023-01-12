@@ -523,9 +523,44 @@ async function listUsersCoworkers(){
 
 }
 
+async function editUserOnline(body){
+
+    const localStorage = getLocalStorage()
+
+    try{
+
+        const request = await fetch(`${baseUrl}users`, {
+            method:'PATCH',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body:JSON.stringify(body),
+        })
+
+        if(request.ok){
+
+            const response = await request.json()
+
+            toast('Sucesso!', 'usuário editado!')
+            return response
+
+
+        }else{
+            toast('Erro', 'falha na requisição')
+        }
+
+
+    }catch(err) {
+
+        console.log(err)
+    }
+
+
+}
 
 
 
 
 export { listCompanies, register, login, selectSector, checkUserType, listDepartments, createDepartment }
-export { listCompaniesDptm, editDepartment, deleteDepartment, listUsers, editUsers, deleteUser, usersNoDptm, hireUser, userInfo, listUsersCoworkers }
+export { listCompaniesDptm, editDepartment, deleteDepartment, listUsers, editUsers, deleteUser, usersNoDptm, hireUser, userInfo, listUsersCoworkers, editUserOnline }

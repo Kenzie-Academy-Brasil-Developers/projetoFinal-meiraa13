@@ -386,5 +386,35 @@ async function admViewForm(dptm, array){
 
 }
 
+async function teste(body){
 
-export { createDepoForm, editDptmForm, deleteDptmForm, editUserForm, deleteUserForm, admViewForm }
+
+    const formulario = document.createElement('form')
+    formulario.classList.add('form')
+
+    let h1 = document.createElement('h1')
+    h1.innerText = 'Criar Departamento'
+
+    let input1 = document.createElement('input')
+    input1.placeholder = 'Nome do usuário'
+    input1.name = 'username'
+    let input2 = document.createElement('input')
+    input2.placeholder = 'E-mail'
+    input2.name = 'email'
+    let input3 = document.createElement('input')
+    input3.placeholder = 'Senha'
+    input3.name = 'password'
+    
+    let button = document.createElement('button')
+    button.classList = 'btn-createForm'
+    button.innerText = 'Editar usuário'
+
+    formulario.append(h1, input1, input2, input3, button)
+
+   
+
+    return formulario
+
+}
+
+export { createDepoForm, editDptmForm, deleteDptmForm, editUserForm, deleteUserForm, admViewForm, teste }

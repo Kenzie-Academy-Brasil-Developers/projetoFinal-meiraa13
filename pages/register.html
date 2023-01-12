@@ -17,12 +17,18 @@
 <body>
     <header>
         <div class="div-header container">
-            <div class="div-empresas">
-                <img class="blue-ball" src="../assets/blue-icon.png">
-                <h4>Kenzie Empresas</h4>
+            <div class="line-1">
+                <div class="div-empresas">
+                    <img class="blue-ball" src="./assets/blue-icon.png">
+                    <h4>Kenzie Empresas</h4>
+                </div>
+                <div class="button-open">
+                    <img class="btn-show" src="../assets/button.png">
+                </div>
             </div>
-            <div>
-                <img src="../assets/button.png">
+            <div class="line-2 show-btn">
+                <a class="btn-header1" href="../index.html">Home</a>
+                <a class="btn-header2" href="./login.html">Login</a>
             </div>
         </div>
     </header>
@@ -33,7 +39,13 @@
                 <input type="text" id="username" placeholder="Seu nome">
                 <input type="password" id="password" placeholder="Sua senha">
                 <input type="email" id="email" placeholder="Seu e-mail">
-                <!-- <select>teste</select> -->
+                <select id="professional_level" class="select-register">
+                    <option>Selecione nível profissional</option>
+                    <option value="estágio">Estágio</option>
+                    <option value="junior">Junior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="senior">Sênior</option>
+                </select>
                 <button type="submit" class="blue-btn">Cadastre-se</button>
                 <a class="gray-btn" href="./login.html">Retornar</a>
             </form>

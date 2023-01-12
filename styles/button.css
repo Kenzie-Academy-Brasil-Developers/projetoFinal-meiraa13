@@ -11,6 +11,7 @@ input {
     color: var(--color02);
     border-style: none;
     cursor: pointer;
+    font-size: medium;
 }
 
 .gray-btn {
@@ -22,6 +23,7 @@ input {
     color: var(--color01);
     text-decoration: none;
     cursor: pointer;
+    font-size: medium;
 
 }
 
@@ -32,6 +34,7 @@ input {
     border:1px solid var(--color01);
     color: var(--color01);
     cursor: pointer;
+    font-size: medium;
 
 }
 
@@ -129,4 +132,9 @@ input {
     background-color: var(--color02);
     color: var(--color04);
     cursor: pointer;
+}
+
+a {
+
+    text-decoration: none;
 }
