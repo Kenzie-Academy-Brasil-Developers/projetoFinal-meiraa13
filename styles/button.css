@@ -10,6 +10,7 @@ input {
     background-color: var(--color01);
     color: var(--color02);
     border-style: none;
+    cursor: pointer;
 }
 
 .gray-btn {
@@ -20,6 +21,7 @@ input {
     border: 1px solid var(--color01);
     color: var(--color01);
     text-decoration: none;
+    cursor: pointer;
 
 }
 
@@ -29,6 +31,7 @@ input {
     background-color: var(--color02);
     border:1px solid var(--color01);
     color: var(--color01);
+    cursor: pointer;
 
 }
 
@@ -80,4 +83,50 @@ input {
     cursor: pointer;
 
 
+}
+
+.btn-viewForm {
+
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color:var(--color05);
+    border-style: none;
+    color: var(--color02);
+    cursor: pointer;
+
+}
+
+.btn-deleteForm {
+
+    width: 100%;
+    padding: 0.6rem;
+    border-style: none;
+    background-color: var(--color05);
+    color: var(--color02);
+    cursor: pointer;
+    
+
+}
+
+.btn-createForm {
+
+    background-color: var(--color01);
+    padding: 0.4rem;
+    border-style: none;
+    color: var(--color02);
+    cursor: pointer;
+}
+
+.div-btn {
+
+    text-align: center;
+}
+
+.btn-desligar-form {
+
+    padding: 0.4rem 1.5rem;
+    border:1px solid var(--color04);
+    background-color: var(--color02);
+    color: var(--color04);
+    cursor: pointer;
 }

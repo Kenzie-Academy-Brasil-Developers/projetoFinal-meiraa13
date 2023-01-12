@@ -13,14 +13,14 @@
 .modal-container{
     background-color: white;
     min-width: 400px;
-    min-height: 300px;
+    min-height: 200px;
     position: relative;
     /* background-color: aqua; */
     border-radius: 10px;
     /* border: solid 2px black; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .modal-close{

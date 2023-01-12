@@ -6,6 +6,7 @@
     /* background-color: aqua; */
     flex-direction: column;
     justify-content: space-between;
+    padding: 1rem;
     /* gap: 30px */
 
 }
@@ -25,38 +26,27 @@
     border: 1px solid var(--gray500);
 }
 
-.btn-createForm {
+.select-form-view {
 
-    background-color: var(--color01);
-    padding: 0.4rem;
-    border-style: none;
-    color: var(--color02);
-    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--gray500);
 }
+
+
 
 .form-delete {
 
-    padding: 0 1rem;
+    padding: 2rem;
     width: 500px;
     height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-
+    gap:1rem;
 }
 
-.btn-deleteForm {
-
-    width: 100%;
-    padding: 0.6rem;
-    border-style: none;
-    background-color: var(--color05);
-    color: var(--color02);
-    cursor: pointer;
-
-}
 
 .input-editForm {
 
@@ -66,6 +56,7 @@
 
 .form-editUser {
 
+    padding: 1rem;
     width: 95%;
     height: 200px;
     display: flex;
@@ -74,3 +65,67 @@
     justify-content: space-around;
 
 }
+
+.div-form {
+
+    height: 400px;
+    width: 600px;
+}
+
+.form-view {
+
+    /* background-color: aqua; */
+    width: 100%;
+    padding: 1rem;
+    height: 150px;
+
+}
+
+.main-div-form {
+
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-left {
+
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.div-right {
+    
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+
+
+.ul-form {
+
+    background-color: var(--gray800);
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+
+
+}
+
+.li-form {
+
+    width: 250px;
+    display: flex;
+    gap: 0.5rem;
+    border-style: none;
+    
+}
+
+
+

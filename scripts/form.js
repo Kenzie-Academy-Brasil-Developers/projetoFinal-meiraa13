@@ -1,4 +1,5 @@
 import { createDepartment } from "./requests.js";
+import { listDepartments } from "./requests.js";
 import { listUsers } from "./requests.js";
 import { renderDepartments } from "./adm.js";
 import { listCompanies } from "./requests.js";
@@ -9,6 +10,7 @@ import { renderUsers } from "./adm.js";
 import { deleteUser } from "./requests.js";
 import { usersNoDptm } from "./requests.js";
 import { hireUser } from "./requests.js";
+import { openModal } from "./modal.js";
 
 async function createDepoForm(){
 
@@ -146,6 +148,7 @@ async function deleteDptmForm(department){
 
         await deleteDepartment(department.uuid)
         await renderDepartments()
+        await renderUsers()
 
     })
 
@@ -255,21 +258,33 @@ async function deleteUserForm(user){
 }
 
 
-async function admViewForm(dptm){
+async function admViewForm(dptm, array){
 
     const usersArray = await usersNoDptm()
-
+    const userDptm = await listUsers()
+    
+    const div = document.createElement('div')
+    div.classList = 'div-form'
     const formulario = document.createElement('form')
-    formulario.classList = 'form'
+    formulario.classList = 'form-view'
 
     let h1 = document.createElement('h1')
     h1.innerText = dptm.name
+    let div1 = document.createElement('div')
+    div1.classList = 'main-div-form'
+    let div2 = document.createElement('div')
+    div2.classList = 'div-left'
+    let div3 = document.createElement('div')
+    div3.classList = 'div-right'
     let h4 = document.createElement('h4')
     h4.innerText = dptm.description
     let p = document.createElement('p')
     p.innerText = dptm.companies.name
+    div2.append(h4, p)
+
     let select = document.createElement('select')
     select.name = 'user_uuid'
+    select.classList = 'select-form-view'
     let optionPlaceholder = document.createElement('option')
     optionPlaceholder.innerText = 'Selecionar usuário'
     select.appendChild(optionPlaceholder)
@@ -285,13 +300,17 @@ async function admViewForm(dptm){
 
     let button = document.createElement('button')
     button.innerText = 'Contratar'
+    button.classList = 'btn-viewForm'
 
-    formulario.append(h1, h4, p, select, button)
+    div3.append(select, button)
+    div1.append(div2, div3)
+
+    formulario.append(h1, div1)
 
     formulario.addEventListener('submit', async(e)=>{
 
             e.preventDefault()
-            e.path[2].remove()
+            e.path[3].remove()
 
             const inputs = [...e.target]
             const body = {}
@@ -308,14 +327,61 @@ async function admViewForm(dptm){
 
             await hireUser(body)
             await renderDepartments()
+            await renderUsers()
+        
+        })
+
+    let ul = document.createElement('ul')
+    ul.classList = 'ul-form'
+
+    let newArray2 = userDptm.filter((depo)=> depo.department_uuid == dptm.uuid)
+
+    if(newArray2){
+        newArray2.forEach((user)=>{
+
+            let newArray = array.find((dptm)=> dptm.uuid == user.department_uuid)
             
+          
+            let li = document.createElement('li')
+            li.classList = 'li-form'
+    
+            let h4 = document.createElement('h4')
+            h4.innerText = user.username
+            let p1 = document.createElement('p')
+            p1.innerText = user.professional_level
+            let p2 = document.createElement('p')
+            if(newArray){
+    
+                p2.innerText = newArray.companies.name
+            }
+          
+            let divbtn = document.createElement('div')
+            divbtn.classList = 'div-btn'
+            let btn = document.createElement('button')
+            btn.classList = 'btn-desligar-form'
+            btn.innerText = 'Desligar'
+
+            btn.addEventListener('click',async(e)=>{
+
+                e.path[6].remove()
+
+                const deleteUser = await deleteUserForm(user)
+                openModal(deleteUser)
 
 
+            })
+    
+            divbtn.appendChild(btn)
+            li.append(h4,p1,p2, divbtn)
+            ul.appendChild(li)
+    
+        })
+    
+    }
+   
 
-
-    })
-
-    return formulario
+    div.append(formulario, ul)
+    return div
 
 
 }

@@ -43,7 +43,7 @@ async function register(body){
 
             toast('Sucesso!', 'Cadastro realizado')
 
-            localStorage.setItem('user', JSON.stringify(response))
+            // localStorage.setItem('user', JSON.stringify(response))
 
             setTimeout(()=>{
 
@@ -150,6 +150,7 @@ async function checkUserType(){
         })
 
         const response = await request.json()
+
         return response
 
 
@@ -200,15 +201,16 @@ async function createDepartment(body){
             body:JSON.stringify(body),
         })
 
-        console.log(request)
         if(request.ok){
 
             const response = await request.json()
+
+            toast('Sucesso!', 'departamento criado!')
             return response
 
 
         }else{
-            console.log('oi')
+            toast('Erro', 'falha na requisição')
         }
     
     }catch(err) {
@@ -258,8 +260,17 @@ async function editDepartment(body, id){
             body:JSON.stringify(body),
         })
 
-        const response = await request.json()
-        return response
+        if(request.ok){
+
+            const response = await request.json()
+
+            toast('Sucesso!', 'departamento editado!')
+            return response
+
+
+        }else{
+            toast('Erro', 'falha na requisição')
+        }
 
 
     }catch(err) {
@@ -284,8 +295,17 @@ async function deleteDepartment(id){
             },
         })
 
-        const response = await request.json()
-        return response
+
+        if(request.ok){
+
+           
+
+            toast('Sucesso!', 'departamento deletado!')
+
+
+        }else{
+            toast('Erro', 'falha na requisição')
+        }
 
 
     }catch(err) {
@@ -337,9 +357,17 @@ async function editUsers(body, id){
             body:JSON.stringify(body)
         })
 
-        const response = await request.json()
-        return response
+        if(request.ok){
 
+            const response = await request.json()
+
+            toast('Sucesso!', 'usuário editado!')
+            return response
+
+
+        }else{
+            toast('Erro', 'preencha todos os campos')
+        }
 
     }catch(err) {
 
@@ -362,8 +390,17 @@ async function deleteUser(id){
             },
         })
 
-        const response = await request.json()
-        return response
+        if(request.ok){
+
+           
+
+            toast('Sucesso!', 'usuário deletado!')
+
+
+        }else{
+            toast('Erro', 'falha na requisição')
+        }
+
 
 
     }catch(err) {
@@ -414,6 +451,66 @@ async function hireUser(body){
             body: JSON.stringify(body)
         })
 
+        if(request.ok){
+
+            const response = await request.json()
+
+            toast('Sucesso!', 'usuário contratado!')
+            return response
+
+
+        }else{
+            toast('Erro', 'falha na requisição')
+        }
+
+
+    }catch(err) {
+
+        console.log(err)
+    }
+
+
+}
+
+async function userInfo(){
+
+    const localStorage = getLocalStorage()
+
+    try{
+
+        const request = await fetch(baseUrl + 'users/profile', {
+            method:'GET',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            }
+        })
+
+        const response = await request.json()
+        return response
+
+
+    }catch(err) {
+
+        console.log(err)
+    }
+
+}
+
+async function listUsersCoworkers(){
+
+    const localStorage = getLocalStorage()
+
+    try{
+
+        const request = await fetch(baseUrl + 'users/departments/coworkers', {
+            method:'GET',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            }
+        })
+
         const response = await request.json()
         return response
 
@@ -428,4 +525,7 @@ async function hireUser(body){
 
 
 
-export { listCompanies, register, login, selectSector, checkUserType, listDepartments, createDepartment, listCompaniesDptm, editDepartment, deleteDepartment, listUsers, editUsers, deleteUser, usersNoDptm, hireUser }
+
+
+export { listCompanies, register, login, selectSector, checkUserType, listDepartments, createDepartment }
+export { listCompaniesDptm, editDepartment, deleteDepartment, listUsers, editUsers, deleteUser, usersNoDptm, hireUser, userInfo, listUsersCoworkers }

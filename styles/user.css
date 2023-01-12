@@ -1,7 +1,19 @@
+main {
+
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-between;
+
+}
+
+
+
 .user-area {
 
     border: 1px solid var(--gray500);
     padding: 1rem;
+    height: 120px;
 
 }
 
@@ -10,15 +22,15 @@
     background-color: var(--color01);
     color: var(--color02);
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .company {
 
-    background-color: var(--gray800);
-    height: 300px;
+    background-color:var(--gray800);
+    height: 350px;
+    width: 100%;
     border: 1px solid var(--gray500);
-    overflow-y: auto;
 }
 
 ul{
@@ -28,7 +40,10 @@ ul{
     padding: 1rem;
     gap: 10px;
     width: 100%;
+    height: 250px;
     flex-wrap: wrap;
+    overflow-y:scroll;
+ 
 }
 
 li {
@@ -40,4 +55,5 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }

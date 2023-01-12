@@ -9,6 +9,38 @@ import { listUsers } from "./requests.js";
 import { editUserForm } from "./form.js";
 import { deleteUserForm } from "./form.js";
 import { admViewForm } from "./form.js";
+import { getLocalStorage } from "./localStorage.js";
+import { checkUserType } from "./requests.js";
+
+
+
+
+async function verifyPermission(){
+    
+    const user = getLocalStorage()
+    const type = await checkUserType()
+
+    if(user == '' || type.is_admin == false){
+        window.location.replace('../index.html')
+    }
+
+}
+verifyPermission()
+
+async function logout(){
+
+
+    let button = document.querySelector('.logout')
+    button.addEventListener('click',()=>{
+
+        localStorage.removeItem('user')
+        window.location.replace('../index.html')
+       
+    })
+
+}
+logout()
+
 
 
 async function renderDepartments(){
@@ -21,7 +53,7 @@ async function renderDepartments(){
 
     departments.forEach((depart)=>{
 
-        let template = createDepartment(depart)
+        let template = createDepartment(depart, departments)
         ul.appendChild(template)
     })
 
@@ -29,8 +61,9 @@ async function renderDepartments(){
 
 renderDepartments()
 
-function createDepartment(department){
+function createDepartment(department, array){
 
+   
     let li = document.createElement('li')
 
     let h4 = document.createElement('h4')
@@ -47,7 +80,7 @@ function createDepartment(department){
 
     btn1.addEventListener('click', async()=>{
 
-        const viewAdm = await admViewForm(department)
+        const viewAdm = await admViewForm(department, array)
         openModal(viewAdm)
 
     })
@@ -154,6 +187,7 @@ renderUsers()
 
 function createUser(user, dptms){
 
+   
     let array = dptms.find((dptm)=> dptm.uuid == user.department_uuid)
     
     let li = document.createElement('li')
