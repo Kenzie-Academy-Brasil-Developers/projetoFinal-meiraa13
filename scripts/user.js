@@ -58,7 +58,7 @@ async function renderUserInfo(){
 
     button.addEventListener('click', async()=>{
 
-        const modal = await teste22()
+        const modal = await editUserLogedIn()
         openModal(modal)
 
     })
@@ -78,6 +78,7 @@ async function renderUserCoworkers(){
 
     const coworkers = await listUsersCoworkers()
     let arrayCoworkers = coworkers[0].users
+    
 
     let section = document.querySelector('.company')
 
@@ -112,21 +113,22 @@ async function renderUserCoworkers(){
 renderUserCoworkers()
 
 
-async function teste22(){
+async function editUserLogedIn(){
 
 
     const formulario = document.createElement('form')
     formulario.classList.add('form')
 
     let h1 = document.createElement('h1')
-    h1.innerText = 'Criar Departamento'
+    h1.innerText = 'Editar Usuário'
 
     let input1 = document.createElement('input')
     input1.placeholder = 'Nome do usuário'
     input1.name = 'username'
     let input2 = document.createElement('input')
-    input2.placeholder = 'E-mail'
+    input2.placeholder = 'Email'
     input2.name = 'email'
+    input2.type = 'email'
     let input3 = document.createElement('input')
     input3.placeholder = 'Senha'
     input3.name = 'password'
@@ -154,6 +156,7 @@ async function teste22(){
            }
             
         })
+        console.log(body)
 
        await editUserOnline(body)
        renderUserInfo()
